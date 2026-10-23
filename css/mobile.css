@@ -1,0 +1,54 @@
+/* Phone-only layout fixes (Bootstrap xs, below 768px). Desktop and tablet are unchanged. */
+@media (max-width: 767px) {
+    /* The theme lays header/footer columns out inline with margin-right:-4px, which pushes
+       full-width columns 4px past the screen edge and makes the page wobble sideways. */
+    header [class*="col-"],
+    footer [class*="col-"] {
+        margin-right: 0;
+    }
+
+    /* Logo and menu button side by side instead of stacked. */
+    .mainheader .row > .col-md-3 {
+        width: 70%;
+        float: left;
+    }
+    .mainheader .row > .col-md-9 {
+        width: 30%;
+        float: right;
+        position: static; /* so the menu panel spans the header, not this column */
+    }
+    .mainheader .logo img {
+        max-height: 48px;
+        width: auto;
+        margin-top: 0 !important;
+    }
+
+    /* Menu: full-width panel under the header with normal-height tap targets
+       (the theme's desktop padding made each item about 90px tall in a 250px side panel). */
+    .mainheader {
+        position: relative;
+    }
+    .mainheader .navigation {
+        position: static;
+    }
+    .mainheader .navbar-collapse {
+        left: 0;
+        right: 0;
+        top: 100%;
+        width: auto;
+        padding: 0;
+        z-index: 1000;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .15);
+    }
+    .mainheader .navigation .navbar-nav {
+        margin: 0;
+    }
+    .mainheader .navigation .navbar-nav > li > a {
+        padding: 12px 20px;
+        border-bottom: 1px solid #ddd;
+    }
+    /* The products hover sub-menu doesn't work on touch; the products page lists the categories. */
+    .mainheader .navigation .sub-dropdown {
+        display: none !important;
+    }
+}
