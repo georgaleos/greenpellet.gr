@@ -293,6 +293,8 @@ jQuery(function ($) {
         $('.bxslider').bxSlider({ auto: true });
         $('#mainbanner .bx-controls-direction .bx-prev').empty().append('<i class="fa fa-angle-left"></i>');
         $('#mainbanner .bx-controls-direction .bx-next').empty().append('<i class="fa fa-angle-right"></i>');
+        $('#mainbanner .bx-prev').attr('aria-label', 'Προηγούμενη εικόνα');
+        $('#mainbanner .bx-next').attr('aria-label', 'Επόμενη εικόνα');
     }
 
     $('.sub-dropdown').parent('li').addClass('parentIcon');

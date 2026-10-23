@@ -1,0 +1,21 @@
+/* Layout-stability fixes for the home page banner (Cumulative Layout Shift). */
+
+/* Before bxSlider starts, the slides are a plain list: show only the first slide, sized like the
+   running slider (the theme caps .bx-viewport at 400px), so nothing below jumps when it starts. */
+#mainbanner > ul.bxslider {
+    max-height: 400px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#mainbanner > ul.bxslider > li + li {
+    display: none;
+}
+
+/* Images keep the space reserved by their width/height attributes while loading. */
+#mainbanner .bxslider img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
